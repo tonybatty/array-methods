@@ -2,12 +2,16 @@ function removeMiddle( words ){
   // words is an array which contains an odd number of strings
   // return a new array containing only the middle word
   // the words array should no longer contain the middle word
+
+  // hint: use splice
 }
 
 function get2ndAnd3rd( myArray ){
   // myArray is an array of numbers
   // return an array containing the 2nd and 3rd items from myArray
   // myArray should remain unchanged
+
+  // hint: use slice
 }
 
 function stringify( myArray ){
