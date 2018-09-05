@@ -10,7 +10,8 @@
     "jest": "^22.1.4"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testWatch": "npm run test -- --watch"
   },
   "author": "",
   "license": "ISC"
