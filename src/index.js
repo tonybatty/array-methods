@@ -134,6 +134,8 @@ function deleteColour(car) {
   //   colour: 'red'
   // }
   // delete the property colour and return car without this property
+  delete car.colour;
+  return car;
 }
 
 function paintShop(cars, colour) {
@@ -149,12 +151,20 @@ function paintShop(cars, colour) {
   // passed in and return the new array
   // the original array passed in should not change
   // hint: look up 'Cloning objects in JavaScript'
+  return cars.map(car => {
+    if (car.make === 'Ford') {
+      return Object.assign({}, car, { colour });
+    }
+    return car;
+  });
 }
-
 function secondLargest(numbers) {
   // numbers is an array of numbers
   // return the index of the second
   // largest number in the array
+  const numbersCopy = numbers.slice();
+  numbersCopy.sort((a, b) => a - b);
+  return numbers.indexOf(numbersCopy[numbersCopy.length - 2]);
 }
 
 function addSales(city, sales) {
@@ -169,6 +179,10 @@ function addSales(city, sales) {
     berlin: 150,
     madrid: 400
   };
+  // console.log(global[city]);
+  if (typeof globalSales[city] === 'undefined') globalSales[city] = 0;
+  globalSales[city] = globalSales[city] + sales;
+  return globalSales;
 
   // If city already exists in object, add sales figure
   // to its total. If city does not exist, create a new
@@ -182,6 +196,8 @@ function totalSales(sales) {
   // in the previous exercise. Add up all the sales figures
   // and return the total.
   // Hint: look up how to get the values of an object
+
+  return Object.values(sales).reduce((sum, sale) => sum + sale);
 }
 
 function highestSum(input) {
@@ -194,6 +210,15 @@ function highestSum(input) {
   // ]
   // If an inner array is empty, consider its sum to be 0
   // find and return the largest sum of an inner array
+  return input
+    .filter(item => item.length > 0)
+    .map(item => {
+      return item.reduce((sum, num) => sum + num);
+    })
+    .reduce((max, num) => {
+      if (num > max) max = num;
+      return max;
+    }, 0);
 }
 
 function walletSum(wallet) {

@@ -191,7 +191,7 @@ test('Sorting numbers descending', () => {
   expect(output).toEqual(expected);
 });
 
-test.only('Sorting cars', () => {
+test('Sorting cars', () => {
   const cars = [
     {
       make: 'tesla',
@@ -345,7 +345,7 @@ test('Highest sum - 2', () => {
   expect(output).toEqual(28);
 });
 
-test('Wallet sum', () => {
+test.only('Wallet sum', () => {
   const output = walletSum({
     5: 3,
     10: 8,
